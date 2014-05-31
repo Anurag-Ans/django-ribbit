@@ -8,6 +8,9 @@ class Ribbit(models.Model):
     user = models.ForeignKey(User)
     creation_date = models.DateTimeField(auto_now=True, blank=True)
 
+    def __unicode__(self):
+        return str(self.id)
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     follows = models.ManyToManyField('self', related_name='followed_by', symmetrical=False)
